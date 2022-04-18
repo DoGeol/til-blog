@@ -5,7 +5,7 @@ export default defineUserConfig<DefaultThemeOptions>({
   title: 'TIL BLOG',
   description: 'Welcome to My TIL-BLOG',
   theme: '@vuepress/theme-default',
-  base: '/',
+  base: '/til-blog/',
   themeConfig: {
     logo: '/images/commons/logo.png',
     repoLabel: 'TIL-BLOG',
