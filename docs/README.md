@@ -1,4 +1,6 @@
-# Hello VuePress
-## Hello VuePress
-### Hello VuePress
-#### Hello VuePress
+# 기억보다는 기록을
+
+## 목표
+1. Markdown 언어에 익숙해지기
+2. 알게된 지식은 반드시 정리하기
+3. 여유가 생길때 직접 커스텀 해보기
