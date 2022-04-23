@@ -1,40 +1,55 @@
 const { readdirSync } = require('fs')
 const blogPath = `${__dirname}/..`
 
-function getFolderNames(parent: String): Object[] {
+function getFileNames({ parent, type = 'all' }: { parent: String; type: String }): Object[] {
   let path = blogPath
   if (parent) {
     path = `${blogPath}/${parent}`
   }
-  return readdirSync(path, { withFileTypes: true }).filter(
-    (dirent) => dirent.isDirectory() && dirent.name.indexOf('.') < 0,
-  )
+
+  return readdirSync(path, { withFileTypes: true }).filter((dirent) => {
+    if (type === 'file') {
+      return dirent.isFile() && dirent.name.indexOf('.') !== 0
+    } else if (type === 'folder') {
+      return dirent.isDirectory() && dirent.name.indexOf('.') !== 0
+    } else {
+      return dirent.name.indexOf('.') !== 0
+    }
+  })
 }
 
 export function setLnbMenus(): Object {
   // @ts-ignore
-  const navList = getFolderNames().map((dirent: { name: String }) => dirent.name)
+  const navList = getFileNames({ type: 'folder' }).map((dirent: { name: String }) => dirent.name)
   const lnbMenus = navList.reduce((lnb, nav) => {
-    lnb[`/${nav}/`] = [
-      {
-        text: 'VuePress Reference',
+    lnb[`/${nav}/`] = getFileNames({ parent: nav, type: 'folder' }).map((sub: { name: String }) => {
+      return {
+        text: sub.name,
         collapsible: true,
-        children: [],
-      },
-    ]
+        children: getFileNames({ parent: `${nav}/${sub.name}`, type: 'file' }).map(
+          (file: { name: String }) => `/${nav}/${sub.name}/${file.name}`,
+        ),
+        // children: getFileNames({ parent: `${nav}/${sub.name}`, type: 'file' }).map(
+        //   (file: { name: String }) => {
+        //     return {
+        //       text: `${file.name.split('.md')[0]}`,
+        //       link: `/${nav}/${sub.name}/${file.name}`,
+        //     }
+        //   },
+        // ),
+      }
+    })
     return lnb
   }, {})
-  console.log(lnbMenus)
   return lnbMenus
 }
 
 export function setNavBar(): Object[] {
   // @ts-ignore
-  const navList = getFolderNames().map((dirent: { name: String }) => {
+  return getFileNames({ type: 'folder' }).map((dirent: { name: String }) => {
     return {
-      text: dirent.name,
+      text: dirent.name.toUpperCase(),
       link: `/${dirent.name}/`,
     }
   })
-  return [{ text: 'home', link: '/' }, ...navList]
 }
