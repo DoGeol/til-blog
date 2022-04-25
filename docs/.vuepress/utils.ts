@@ -26,9 +26,11 @@ export function setLnbMenus(): Object {
       return {
         text: sub.name,
         collapsible: true,
-        children: getFileNames({ parent: `${nav}/${sub.name}`, type: 'file' }).map(
-          (file: { name: String }) => `/${nav}/${sub.name}/${file.name}`,
-        ),
+        children: getFileNames({ parent: `${nav}/${sub.name}`, type: 'file' })
+          .map((file: { name: String }) => `/${nav}/${sub.name}/${file.name}`)
+          .sort((a, b) => {
+            return a > b ? -1 : 1
+          }),
         // children: getFileNames({ parent: `${nav}/${sub.name}`, type: 'file' }).map(
         //   (file: { name: String }) => {
         //     return {
