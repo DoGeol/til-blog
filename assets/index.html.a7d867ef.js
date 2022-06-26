@@ -1,0 +1,1 @@
+const e={key:"v-8daa1a0e",path:"/",title:"\uAE30\uC5B5\uBCF4\uB2E4\uB294 \uAE30\uB85D\uC744",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:2,title:"\uBAA9\uD45C",slug:"\u1106\u1169\u11A8\u1111\u116D",children:[]}],git:{updatedTime:1650387384e3,contributors:[{name:"\uD3B8\uB3C4\uAC78",email:"pdg2491@naver.com",commits:3}]},filePathRelative:"README.md"};export{e as data};

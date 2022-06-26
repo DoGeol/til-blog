@@ -1,0 +1,1 @@
+const t={key:"v-3c2fc663",path:"/study/React/2%EC%9D%BC%EC%B0%A8.html",title:"2\uC77C\uCC28",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:2,title:"1. Props",slug:"_1-props",children:[]}],git:{updatedTime:1651071473e3,contributors:[{name:"\uD3B8\uB3C4\uAC78",email:"pdg2491@naver.com",commits:1}]},filePathRelative:"study/React/2\uC77C\uCC28.md"};export{t as data};

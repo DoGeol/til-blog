@@ -1,0 +1,1 @@
+const t={key:"v-01d8f72f",path:"/study/React/",title:"\uBAA9\uD45C",lang:"en-US",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:165098708e4,contributors:[{name:"\uD3B8\uB3C4\uAC78",email:"pdg2491@naver.com",commits:2}]},filePathRelative:"study/React/README.md"};export{t as data};
